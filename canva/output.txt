@@ -1,0 +1,24 @@
+got initial dataset with 22
+dropped empty, now 20
+dropped dupes, now 18
+          store review_date  ...                id tag
+0     App Store  2025-06-02  ...  7fc45f697e227219    
+1   Google Play  2025-06-02  ...  8d23a21dd686ff6f    
+2     App Store  2025-06-02  ...  23fd580a574e2f25    
+3     App Store  2025-06-03  ...  7ef1caa654d28be6    
+4   Google Play  2025-06-03  ...  573d7ad3fc41e24f    
+5     App Store  2025-06-03  ...  4b60dc7a300ca3f5    
+8   Google Play  2025-06-04  ...  69db22e777c8762d    
+9     App Store  2025-06-04  ...  691211f9bbcf11f1    
+10    App Store  2025-06-05  ...  857230e1dc864558    
+11  Google Play  2025-06-05  ...  94ada6703d51509e    
+12    App Store  2025-06-05  ...  2f8119d42e3d267d    
+14  Google Play  2025-06-06  ...  9ecb50ae2a4c0b9f    
+15    App Store  2025-06-06  ...  b0cb1a7c0caab35c    
+16  Google Play  2025-06-07  ...  461b25efc72bc6e4    
+17    App Store  2025-06-07  ...  7b7a5d806cfd2b25    
+19  Google Play  2025-06-08  ...  bac68539855b8c5a    
+20    App Store  2025-06-08  ...  d398c5ef83a0e528    
+21  Google Play  2025-06-08  ...  20f39e1554fe4686    
+
+[18 rows x 10 columns]

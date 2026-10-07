@@ -1,16 +1,24 @@
-import pandas as pd
-
-limit = 10
+import pandas as pd, hashlib
 
 df = pd.read_csv('reviews.csv')
 print(f'got initial dataset with {len(df)}')
 
-df = df.dropna()
+# drop empty (ie. whitespace only or literally empty) rows
+df['review_text'] = df['review_text'].fillna('').astype(str).apply(lambda s: None if s.strip() == '' else s.strip())
+df = df.dropna(subset=['review_text'])
 print(f'dropped empty, now {len(df)}')
 
-df = df.drop_duplicates(subset=['review_text'])
+# dedupe on lower()ed review text
+df['review_low'] = df['review_text'].apply(str.lower)
+df = df.drop_duplicates(subset=['review_low'])
+df = df.drop(columns=['review_low'])
 print(f'dropped dupes, now {len(df)}')
 
-print('')
-for s in df.to_dict(orient='records')[0:limit]:
-  print(f'{s['review_title']}:\n{s['review_text']}\n')
+df['id'] = df['review_text'].apply(lambda t: hashlib.sha256(t.encode('utf-8')).hexdigest()[:16])
+df['tag'] = ''
+
+print(df)
+
+# print('')
+# for s in df.to_dict(orient='records')[0:limit]:
+#   print(f'{s['review_title']} (from {s['store']} on {s['review_date']}, id {s['id']}):\n{s['review_text']}\n')
