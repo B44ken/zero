@@ -1,4 +1,5 @@
 import pandas as pd, hashlib
+pd.set_option('display.max_colwidth', None)
 
 df = pd.read_csv('reviews.csv')
 print(f'got initial dataset with {len(df)}')
@@ -18,7 +19,3 @@ df['id'] = df['review_text'].apply(lambda t: hashlib.sha256(t.encode('utf-8')).h
 df['tag'] = ''
 
 print(df)
-
-# print('')
-# for s in df.to_dict(orient='records')[0:limit]:
-#   print(f'{s['review_title']} (from {s['store']} on {s['review_date']}, id {s['id']}):\n{s['review_text']}\n')
